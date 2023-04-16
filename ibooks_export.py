@@ -153,7 +153,8 @@ def create_md_file(book, metadata, directory):
     md_file = MDFile(title=title, directory=directory)
     md_file.add_header(level=1, title='Book Overview')
     for k, v in book.items():
-        md_file.add_paragraph(f"**{k}**: {v}")
+        if k != 'IsFinished':
+            md_file.add_paragraph(f"**{k}**: {v}")
     chapter_collection = []
     notes_collection = {}
     annotation_collection = {}
